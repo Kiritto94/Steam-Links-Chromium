@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Steam Links",
+    "version": "1.1",
+    "description": "Faz com que todos os links do site da Steam sejam abertos direto no aplicativo da Steam",
+    "author": "Kirito94",
+	
+	"icons": {
+        "16": "/icons/steam-links-16.png",
+        "32": "/icons/steam-links-32.png",
+        "64": "/icons/steam-links-64.png",
+        "128": "/icons/steam-links-128.png"
+		},
+		
+	"action": {
+    "default_title": "Steam Links",
+  	"default_popup": "index.html",
+	"default_icon": "/icons/steam-links.png"
+	},
+		  
+	"host_permissions": [
+	"*://store.steampowered.com/app/*", 
+	"*://steamcommunity.com/*"
+	],
+	
+    "content_scripts": [{
+            "matches": ["*://store.steampowered.com/app/*"],
+            "js": ["/scripts/SteamLinks.js"]},{
+				"matches": ["*://steamcommunity.com/*"],
+				"js": ["/scripts/Community.js"]}
+    ]
+}
